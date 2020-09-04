@@ -2,7 +2,7 @@
 
 ### This problem was asked by Square.
 
-    Given a list of words, return the shortest unique prefix of each word. For example, given the list:
+Given a list of words, return the shortest unique prefix of each word. For example, given the list:
 
     - dog
     - cat
@@ -19,4 +19,3 @@
     - apr
     - f
     - du
- 
