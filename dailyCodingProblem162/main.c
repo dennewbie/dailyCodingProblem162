@@ -53,12 +53,15 @@ char **getShortestUniquePrefixArray(char **wordList, int size) {
     char **finalList = (char **) malloc(sizeof(char *) * size);
     if(!finalList) generateError("final List");
     unsigned short int nChar = 1;
+  
+    
     
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             if (i != j) {
                 if (strncmp(wordList[i], wordList[j], nChar) == 0) {
                     nChar += 1;
+                    if (nChar == strlen(wordList[i])) break;
                     j--;
                 }
             }
@@ -69,6 +72,8 @@ char **getShortestUniquePrefixArray(char **wordList, int size) {
         
         strncpy(finalList[i], wordList[i], nChar);
         finalList[i][nChar + 1] = '\0';
+        
+        if (nChar == strlen(wordList[i])) printf("\nAlert: There are two equal words. It's impossible to make an array with shortest unique prefixes...\n");
         nChar = 1;
     }
     
