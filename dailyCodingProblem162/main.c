@@ -53,7 +53,15 @@ char **getShortestUniquePrefixArray(char **wordList, int size) {
     char **finalList = (char **) malloc(sizeof(char *) * size);
     if(!finalList) generateError("final List");
     unsigned short int nChar = 1;
-  
+    
+/*
+      Number of char that will be at least inside the new array for each word.
+      This nChar is going to increase each time that we found an equal character inside the array,
+      in this way we are going to reserve more space in memory for its place in the array.
+      Furthermore when we found an equal char it means that prefix isn't unique, so we decrease the
+      counter j (internal one) and check again if also the following letters are equal in order to get
+      the shortest unique prefix array.
+ */
     
     
     for (int i = 0; i < size; i++) {
